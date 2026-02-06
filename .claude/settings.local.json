@@ -12,7 +12,8 @@
       "mcp__playwright__browser_run_code",
       "Bash(npm install:*)",
       "Bash(npm run studio:dev:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(curl:*)"
     ]
   }
 }

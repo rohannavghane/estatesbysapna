@@ -1,18 +1,16 @@
 import { defineConfig } from 'sanity';
-import { structureTool } from 'sanity/structure';
-import { visionTool } from '@sanity/vision';
+import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 
 export default defineConfig({
   name: 'default',
   title: 'Estates By Sapna',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'your-project-id',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'rx98mfqq',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
-    structureTool(),
-    visionTool(), // Optional: Query testing tool
+    deskTool(),
   ],
 
   schema: {

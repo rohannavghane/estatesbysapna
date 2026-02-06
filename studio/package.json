@@ -1,0 +1,13 @@
+{
+  "name": "estates-by-sapna-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity Studio for Estates By Sapna",
+  "type": "module",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.60.0",
+    "styled-components": "^6.3.8"
+  }
+}
