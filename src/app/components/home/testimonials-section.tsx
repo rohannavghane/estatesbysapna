@@ -10,8 +10,8 @@ export function TestimonialsSection() {
     },
     {
       icon: Award,
-      title: 'Fully Certified & Trained',
-      description: 'RERA-licensed with comprehensive market training, equipped with the latest knowledge on Dubai\'s property regulations and market trends.',
+      title: 'Trusted Professional',
+      description: 'Verified professional with comprehensive market training, equipped with the latest knowledge on Dubai\'s property regulations and market trends.',
     },
     {
       icon: Network,

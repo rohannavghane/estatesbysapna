@@ -17,30 +17,8 @@ export function AboutPreview() {
                 src={about.agent.image}
                 alt={about.agent.fullName}
                 className="w-full h-[500px] object-cover"
+                    style={{ objectPosition: 'center 30%' }}
               />
-            </div>
-            {/* RERA Badge - Overlapping bottom-right */}
-            <div 
-              className="absolute -bottom-6 -right-6 bg-[var(--gold)] rounded-2xl shadow-xl text-center"
-              style={{ 
-                width: '160px', 
-                height: '110px',
-                padding: '20px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-              }}
-            >
-              <div 
-                className="text-4xl md:text-5xl leading-none mb-1"
-                style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
-              >
-                RERA
-              </div>
-              <div 
-                className="text-sm md:text-base font-medium"
-                style={{ color: 'var(--navy)' }}
-              >
-                Certified
-              </div>
             </div>
           </div>
 
@@ -67,9 +45,9 @@ export function AboutPreview() {
                     className="text-lg mb-1 font-semibold"
                     style={{ color: 'var(--navy)' }}
                   >
-                    RERA Certified
+                    Sapna Navghane
                   </div>
-                  <div className="text-sm text-muted-foreground">Official Licensed Agent</div>
+                  <div className="text-sm text-muted-foreground">Real Estate Agent</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">

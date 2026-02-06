@@ -1,20 +1,34 @@
+import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
+import { Button } from '@/app/components/ui/button';
+import { Card, CardContent } from '@/app/components/ui/card';
+import { siteConfig } from '@/app/data/site-config';
 import {
-  Award, Users, Home, Star, Check, MapPin, User, TrendingUp,
-  Laptop, Clock, MessageSquare, Network, Target, Timer, FileText, Bell,
-  GraduationCap, Handshake, Phone, Mail, MessageCircle
+  Award,
+  Bell,
+  Check,
+  Clock,
+  FileText,
+  GraduationCap, Handshake,
+  Home,
+  Laptop,
+  Mail,
+  MapPin,
+  MessageCircle,
+  MessageSquare, Network,
+  Phone,
+  Star,
+  Target, Timer,
+  TrendingUp,
+  User,
+  // Users
 } from 'lucide-react';
 import { Link } from 'react-router';
-import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import { Card, CardContent } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
-import { siteConfig } from '@/app/data/site-config';
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Award, Users, Home, Star, Check, MapPin, User, TrendingUp,
-  Laptop, Clock, MessageSquare, Network, Target, Timer, FileText, Bell,
-  GraduationCap, Handshake, Phone, Mail, MessageCircle
-};
+// const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+//   Award, Users, Home, Star, Check, MapPin, User, TrendingUp,
+//   Laptop, Clock, MessageSquare, Network, Target, Timer, FileText, Bell,
+//   GraduationCap, Handshake, Phone, Mail, MessageCircle
+// };
 
 export function AboutPage() {
   const { about, contact, cta } = siteConfig;
@@ -39,32 +53,10 @@ export function AboutPage() {
                     src={about.agent.image}
                     alt={about.agent.fullName}
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30%' }}
                   />
                 </div>
 
-                {/* RERA Badge - Overlapping bottom-right */}
-                <div
-                  className="absolute bottom-0 right-0 bg-[var(--gold)] rounded-2xl shadow-lg text-center"
-                  style={{
-                    width: '160px',
-                    height: '110px',
-                    padding: '20px',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-                  }}
-                >
-                  <div
-                    className="text-4xl md:text-5xl leading-none mb-1"
-                    style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
-                  >
-                    RERA
-                  </div>
-                  <div
-                    className="text-sm md:text-base font-medium"
-                    style={{ color: 'var(--navy)' }}
-                  >
-                    Certified
-                  </div>
-                </div>
               </div>
             </div>
 

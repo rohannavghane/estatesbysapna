@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router';
-import { MapPin, Building, TreePine, Waves, Train, ShoppingBag, GraduationCap, Dumbbell, CheckCircle, ArrowRight } from 'lucide-react';
-import { neighborhoods, properties } from '@/app/data/properties';
+import { MapPin, Building, TreePine, Waves, Train, ShoppingBag, GraduationCap, Dumbbell, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
+import { useProperties } from '@/app/hooks/useProperties';
+import { useNeighborhood } from '@/app/hooks/useNeighborhoods';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { PropertyCard } from '@/app/components/property/property-card';
 import { Button } from '@/app/components/ui/button';
@@ -23,8 +24,11 @@ const facilityIcons: Record<string, React.ReactNode> = {
 
 export function AreaDetailPage() {
   const { slug } = useParams<{ slug: string }>();
+  const { properties, loading: propertiesLoading, error: propertiesError } = useProperties();
+  const { neighborhood: area, loading: areaLoading, error: areaError } = useNeighborhood(slug || '');
 
-  const area = neighborhoods.find((n) => n.slug === slug);
+  const loading = propertiesLoading || areaLoading;
+  const error = propertiesError || areaError;
 
   if (!area) {
     return (
@@ -191,7 +195,17 @@ export function AreaDetailPage() {
             )}
           </div>
 
-          {areaProperties.length > 0 ? (
+          {loading ? (
+            <div className="flex justify-center items-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-[var(--navy)]" />
+            </div>
+          ) : error ? (
+            <div className="text-center py-12 bg-red-50 rounded-lg">
+              <p className="text-red-600 mb-4">
+                Failed to load properties. Please try again later.
+              </p>
+            </div>
+          ) : areaProperties.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {areaProperties.slice(0, 6).map((property) => (
                 <PropertyCard key={property.id} property={property} />

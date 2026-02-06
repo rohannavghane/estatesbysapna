@@ -8,7 +8,8 @@
     "dev": "vite",
     "studio:dev": "cd studio && sanity dev",
     "studio:build": "cd studio && sanity build",
-    "studio:deploy": "cd studio && sanity deploy"
+    "studio:deploy": "cd studio && sanity deploy",
+    "import:sanity": "node scripts/import-to-sanity.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

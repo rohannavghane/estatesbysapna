@@ -72,9 +72,9 @@
       "name": "Sapna",
       "fullName": "Sapna",
       "title": "Your Dedicated Partner in Dubai Real Estate",
-      "image": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?w=800",
+      "image": "/images/sapna.jpg",
       "bio": [
-        "As a RERA-certified real estate agent specializing in Dubai's luxury property market, I am committed to helping you find your perfect property match. Whether you're looking for a luxury villa, investment apartment, or your forever home, I provide personalized service tailored to your unique needs.",
+        "As a trusted real estate professional specializing in Dubai's luxury property market, I am committed to helping you find your perfect property match. Whether you're looking for a luxury villa, investment apartment, or your forever home, I provide personalized service tailored to your unique needs.",
         "My comprehensive market knowledge of Dubai's neighborhoods, combined with strong relationships with developers and property owners, ensures you get access to the best opportunities in the market."
       ],
       "commitment": [
@@ -99,8 +99,8 @@
     ],
     "trustIndicators": [
       {
-        "title": "RERA Licensed",
-        "subtitle": "Fully Certified Agent"
+        "title": "Trusted Professional",
+        "subtitle": "Verified Real Estate Agent"
       },
       {
         "title": "24/7 Available",
@@ -158,7 +158,7 @@
     ],
     "certifications": [
       {
-        "title": "RERA Certified Real Estate Agent",
+        "title": "Trusted Professional Real Estate Agent",
         "organization": "Dubai Land Department",
         "date": "2025"
       },
