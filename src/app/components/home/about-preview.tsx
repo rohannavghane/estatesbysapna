@@ -3,9 +3,13 @@ import { ChevronRight, Award, Clock } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { siteConfig } from '@/app/data/site-config';
+import { getPublicAssetPath } from '@/app/lib/utils';
 
 export function AboutPreview() {
   const { about } = siteConfig;
+  const agentImageSrc = about.agent.image.startsWith('http')
+    ? about.agent.image
+    : getPublicAssetPath(about.agent.image);
 
   return (
     <section className="py-20 bg-white">
@@ -14,10 +18,10 @@ export function AboutPreview() {
           <div className="relative">
             <div className="relative rounded-lg overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src={about.agent.image}
+                src={agentImageSrc}
                 alt={about.agent.fullName}
                 className="w-full h-[500px] object-cover"
-                    style={{ objectPosition: 'center 30%' }}
+                style={{ objectPosition: 'center 30%' }}
               />
             </div>
           </div>

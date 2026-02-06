@@ -2,6 +2,7 @@ import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { siteConfig } from '@/app/data/site-config';
+import { getPublicAssetPath } from '@/app/lib/utils';
 import {
   Award,
   Bell,
@@ -32,6 +33,9 @@ import { Link } from 'react-router';
 
 export function AboutPage() {
   const { about, contact, cta } = siteConfig;
+  const agentImageSrc = about.agent.image.startsWith('http')
+    ? about.agent.image
+    : getPublicAssetPath(about.agent.image);
 
   const credentialIcons = [Check, GraduationCap, Home, Star];
   const trustIcons = [Award, Clock, Handshake, TrendingUp];
@@ -50,7 +54,7 @@ export function AboutPage() {
               <div className="relative">
                 <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[3px] border-[var(--gold)] shadow-lg">
                   <ImageWithFallback
-                    src={about.agent.image}
+                    src={agentImageSrc}
                     alt={about.agent.fullName}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center 30%' }}
