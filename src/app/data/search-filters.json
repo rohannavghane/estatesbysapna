@@ -1,0 +1,33 @@
+{
+  "propertyTypes": [
+    { "value": "all", "label": "All Types" },
+    { "value": "villa", "label": "Villa" },
+    { "value": "apartment", "label": "Apartment" },
+    { "value": "penthouse", "label": "Penthouse" },
+    { "value": "townhouse", "label": "Townhouse" }
+  ],
+  "locations": [
+    { "value": "all", "label": "All Locations" },
+    { "value": "dubai-marina", "label": "Dubai Marina" },
+    { "value": "downtown-dubai", "label": "Downtown Dubai" },
+    { "value": "palm-jumeirah", "label": "Palm Jumeirah" },
+    { "value": "business-bay", "label": "Business Bay" },
+    { "value": "jbr", "label": "JBR" },
+    { "value": "arabian-ranches", "label": "Arabian Ranches" }
+  ],
+  "priceRanges": [
+    { "value": "all", "label": "All Prices" },
+    { "value": "0-2000000", "label": "Up to AED 2M" },
+    { "value": "2000000-5000000", "label": "AED 2M - 5M" },
+    { "value": "5000000-10000000", "label": "AED 5M - 10M" },
+    { "value": "10000000+", "label": "AED 10M+" }
+  ],
+  "bedrooms": [
+    { "value": "all", "label": "All" },
+    { "value": "1", "label": "1 Bed" },
+    { "value": "2", "label": "2 Beds" },
+    { "value": "3", "label": "3 Beds" },
+    { "value": "4", "label": "4 Beds" },
+    { "value": "5+", "label": "5+ Beds" }
+  ]
+}

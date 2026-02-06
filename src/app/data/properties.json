@@ -1,0 +1,555 @@
+{
+  "properties": [
+    {
+      "id": "1",
+      "title": "Luxury Beachfront Villa",
+      "price": 15000000,
+      "location": "Palm Jumeirah",
+      "neighborhood": "Palm Jumeirah",
+      "type": "Villa",
+      "bedrooms": 6,
+      "bathrooms": 7,
+      "area": 8500,
+      "image": "https://images.unsplash.com/photo-1696880443820-3bc2838a0be0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB2aWxsYSUyMGR1YmFpJTIwcGFsbSUyMGp1bWVpcmFofGVufDF8fHx8MTc2OTg0NDA3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1696880443820-3bc2838a0be0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB2aWxsYSUyMGR1YmFpJTIwcGFsbSUyMGp1bWVpcmFofGVufDF8fHx8MTc2OTg0NDA3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1080",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1080",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1080"
+      ],
+      "featured": true,
+      "new": true,
+      "description": "Stunning beachfront villa with panoramic sea views, private beach access, and world-class amenities. This architectural masterpiece features floor-to-ceiling windows, a private infinity pool, and beautifully landscaped gardens.",
+      "amenities": [
+        "Private Beach",
+        "Infinity Pool",
+        "Gym",
+        "Maid's Room",
+        "Smart Home",
+        "Garden",
+        "Covered Parking",
+        "Security 24/7"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "Atlantis The Palm",
+          "distance": "2.5 km",
+          "type": "hotel"
+        },
+        {
+          "name": "Nakheel Mall",
+          "distance": "3 km",
+          "type": "mall"
+        },
+        {
+          "name": "Palm West Beach",
+          "distance": "500 m",
+          "type": "beach"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.1124,
+        "lng": 55.139
+      }
+    },
+    {
+      "id": "2",
+      "title": "Modern Marina Apartment",
+      "price": 3500000,
+      "location": "Dubai Marina",
+      "neighborhood": "Dubai Marina",
+      "type": "Apartment",
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "area": 2200,
+      "image": "https://images.unsplash.com/photo-1760463921726-6da5d642805e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBkdWJhaSUyMG1hcmluYXxlbnwxfHx8fDE3Njk4NDQwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1760463921726-6da5d642805e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBkdWJhaSUyMG1hcmluYXxlbnwxfHx8fDE3Njk4NDQwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1080",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1080"
+      ],
+      "featured": true,
+      "new": false,
+      "description": "Contemporary apartment in the heart of Dubai Marina with stunning waterfront views. Features include a modern open-plan kitchen, spacious balcony, and access to premium building amenities.",
+      "amenities": [
+        "Pool",
+        "Gym",
+        "Balcony",
+        "Parking",
+        "Concierge",
+        "Children's Play Area"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "Marina Mall",
+          "distance": "800 m",
+          "type": "mall"
+        },
+        {
+          "name": "Dubai Marina Metro",
+          "distance": "600 m",
+          "type": "metro"
+        },
+        {
+          "name": "JBR Beach",
+          "distance": "1.2 km",
+          "type": "beach"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.08,
+        "lng": 55.141
+      }
+    },
+    {
+      "id": "3",
+      "title": "Sky-High Penthouse",
+      "price": 12000000,
+      "location": "Downtown Dubai",
+      "neighborhood": "Downtown Dubai",
+      "type": "Penthouse",
+      "bedrooms": 5,
+      "bathrooms": 6,
+      "area": 6500,
+      "image": "https://images.unsplash.com/photo-1735320859198-9773dc92d5e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwZW50aG91c2UlMjBkdWJhaSUyMGRvd250b3dufGVufDF8fHx8MTc2OTg0NDA3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1735320859198-9773dc92d5e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwZW50aG91c2UlMjBkdWJhaSUyMGRvd250b3dufGVufDF8fHx8MTc2OTg0NDA3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1080",
+        "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1080"
+      ],
+      "featured": true,
+      "new": true,
+      "description": "Exclusive penthouse with breathtaking views of Burj Khalifa and Dubai Fountain. This ultra-luxury residence features a private terrace, jacuzzi, and bespoke interior design.",
+      "amenities": [
+        "Private Terrace",
+        "Jacuzzi",
+        "Smart Home",
+        "Gym",
+        "Parking",
+        "Maid's Room",
+        "Study Room",
+        "Wine Cellar"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "Burj Khalifa",
+          "distance": "300 m",
+          "type": "landmark"
+        },
+        {
+          "name": "Dubai Mall",
+          "distance": "400 m",
+          "type": "mall"
+        },
+        {
+          "name": "Dubai Opera",
+          "distance": "800 m",
+          "type": "entertainment"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.1972,
+        "lng": 55.2744
+      }
+    },
+    {
+      "id": "4",
+      "title": "Contemporary Business Bay Apartment",
+      "price": 2800000,
+      "location": "Business Bay",
+      "neighborhood": "Business Bay",
+      "type": "Apartment",
+      "bedrooms": 2,
+      "bathrooms": 3,
+      "area": 1800,
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1080",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1080",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1080"
+      ],
+      "featured": false,
+      "new": true,
+      "description": "Modern 2-bedroom apartment in Business Bay with stunning canal views. Perfect for young professionals looking for a stylish home in the heart of Dubai's business district.",
+      "amenities": [
+        "Pool",
+        "Gym",
+        "Balcony",
+        "Parking",
+        "Sauna",
+        "Steam Room"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "Business Bay Metro",
+          "distance": "400 m",
+          "type": "metro"
+        },
+        {
+          "name": "Bay Square",
+          "distance": "600 m",
+          "type": "mall"
+        },
+        {
+          "name": "Dubai Canal",
+          "distance": "200 m",
+          "type": "landmark"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.1871,
+        "lng": 55.2631
+      }
+    },
+    {
+      "id": "5",
+      "title": "Family Townhouse",
+      "price": 4500000,
+      "location": "Arabian Ranches",
+      "neighborhood": "Arabian Ranches",
+      "type": "Townhouse",
+      "bedrooms": 4,
+      "bathrooms": 5,
+      "area": 3200,
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1080",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1080",
+        "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1080"
+      ],
+      "featured": false,
+      "new": false,
+      "description": "Spacious family townhouse in a gated community with landscaped gardens and community amenities. Perfect for families seeking a peaceful lifestyle while staying connected to the city.",
+      "amenities": [
+        "Garden",
+        "Community Pool",
+        "Gym",
+        "Parking",
+        "Children's Play Area",
+        "BBQ Area"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "Arabian Ranches Golf Club",
+          "distance": "1 km",
+          "type": "golf"
+        },
+        {
+          "name": "Ranches Primary School",
+          "distance": "500 m",
+          "type": "school"
+        },
+        {
+          "name": "The Ranches Souk",
+          "distance": "800 m",
+          "type": "mall"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.0504,
+        "lng": 55.2708
+      }
+    },
+    {
+      "id": "6",
+      "title": "Luxury JBR Apartment",
+      "price": 5200000,
+      "location": "Jumeirah Beach Residence",
+      "neighborhood": "JBR",
+      "type": "Apartment",
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "area": 2500,
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1080",
+      "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1080",
+        "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=1080",
+        "https://images.unsplash.com/photo-1574643156929-51fa098b0394?w=1080"
+      ],
+      "featured": false,
+      "new": false,
+      "description": "Stunning beachfront apartment with direct beach access and panoramic sea views. Located in the vibrant JBR community with world-class dining and entertainment.",
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Gym",
+        "Balcony",
+        "Parking",
+        "Concierge"
+      ],
+      "nearbyFacilities": [
+        {
+          "name": "The Walk JBR",
+          "distance": "100 m",
+          "type": "entertainment"
+        },
+        {
+          "name": "JBR Beach",
+          "distance": "50 m",
+          "type": "beach"
+        },
+        {
+          "name": "Dubai Tram",
+          "distance": "300 m",
+          "type": "tram"
+        }
+      ],
+      "coordinates": {
+        "lat": 25.0776,
+        "lng": 55.1342
+      }
+    }
+  ],
+  "neighborhoods": [
+    {
+      "slug": "dubai-marina",
+      "name": "Dubai Marina",
+      "image": "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800",
+      "description": "Waterfront living with stunning views",
+      "fullDescription": "Dubai Marina is one of the most sought-after waterfront communities in Dubai, offering a vibrant lifestyle with stunning marina views. This master-planned development features a mix of luxury apartments, penthouses, and retail spaces along a beautiful promenade. Residents enjoy world-class dining, shopping, and entertainment options right at their doorstep.",
+      "images": [
+        "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1080",
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1080",
+        "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1080"
+      ],
+      "facilities": [
+        { "name": "Marina Mall", "distance": "500m", "type": "mall" },
+        { "name": "Dubai Marina Metro", "distance": "300m", "type": "metro" },
+        { "name": "JBR Beach", "distance": "1km", "type": "beach" },
+        { "name": "Marina Walk", "distance": "100m", "type": "entertainment" }
+      ],
+      "highlights": [
+        "Waterfront promenade with cafes and restaurants",
+        "Direct metro connectivity",
+        "Walking distance to JBR Beach",
+        "Yacht club and marina facilities",
+        "24/7 security and concierge services"
+      ]
+    },
+    {
+      "slug": "downtown-dubai",
+      "name": "Downtown Dubai",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
+      "description": "Heart of the city, home to Burj Khalifa",
+      "fullDescription": "Downtown Dubai is the prestigious heart of the city, home to the iconic Burj Khalifa, Dubai Mall, and the famous Dubai Fountain. This vibrant district offers an unparalleled urban lifestyle with world-class shopping, dining, and entertainment. Living here means being at the center of Dubai's most exciting attractions.",
+      "images": [
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1080",
+        "https://images.unsplash.com/photo-1546412414-e1885259563a?w=1080",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1080"
+      ],
+      "facilities": [
+        { "name": "Dubai Mall", "distance": "200m", "type": "mall" },
+        { "name": "Burj Khalifa", "distance": "300m", "type": "landmark" },
+        { "name": "Dubai Opera", "distance": "500m", "type": "entertainment" },
+        { "name": "Burj Khalifa Metro", "distance": "400m", "type": "metro" }
+      ],
+      "highlights": [
+        "Views of Burj Khalifa and Dubai Fountain",
+        "Walking distance to Dubai Mall",
+        "Premium dining and nightlife",
+        "World-class cultural venues",
+        "Central business location"
+      ]
+    },
+    {
+      "slug": "palm-jumeirah",
+      "name": "Palm Jumeirah",
+      "image": "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=800",
+      "description": "Exclusive island living",
+      "fullDescription": "Palm Jumeirah is Dubai's iconic man-made island, offering the most exclusive beachfront living experience. This palm-shaped archipelago features luxurious villas and apartments with private beach access, world-renowned hotels, and breathtaking views of the Arabian Gulf. It represents the pinnacle of luxury island living.",
+      "images": [
+        "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=1080",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1080",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1080"
+      ],
+      "facilities": [
+        { "name": "Atlantis The Palm", "distance": "2km", "type": "hotel" },
+        { "name": "Nakheel Mall", "distance": "1.5km", "type": "mall" },
+        { "name": "Palm West Beach", "distance": "500m", "type": "beach" },
+        { "name": "Palm Monorail", "distance": "800m", "type": "transport" }
+      ],
+      "highlights": [
+        "Private beach access",
+        "Exclusive island community",
+        "World-class resorts and spas",
+        "Stunning sea views",
+        "Premium waterfront dining"
+      ]
+    },
+    {
+      "slug": "business-bay",
+      "name": "Business Bay",
+      "image": "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800",
+      "description": "Modern business district",
+      "fullDescription": "Business Bay is Dubai's central business district, offering a dynamic mix of commercial and residential towers along the Dubai Canal. This modern neighborhood provides excellent connectivity, contemporary architecture, and a vibrant urban atmosphere. It's ideal for professionals seeking a live-work-play lifestyle.",
+      "images": [
+        "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1080",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1080",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1080"
+      ],
+      "facilities": [
+        { "name": "Business Bay Metro", "distance": "300m", "type": "metro" },
+        { "name": "Bay Square", "distance": "400m", "type": "mall" },
+        { "name": "Dubai Canal", "distance": "100m", "type": "landmark" },
+        { "name": "Dubai Mall", "distance": "1.5km", "type": "mall" }
+      ],
+      "highlights": [
+        "Dubai Canal waterfront",
+        "Modern high-rise living",
+        "Excellent metro connectivity",
+        "Close to Downtown Dubai",
+        "Vibrant dining scene"
+      ]
+    },
+    {
+      "slug": "jbr",
+      "name": "JBR",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+      "description": "Beachfront lifestyle and entertainment",
+      "fullDescription": "Jumeirah Beach Residence (JBR) is Dubai's premier beachfront community, featuring a stunning 1.7km stretch of beach, The Walk promenade, and Bluewaters Island nearby. This vibrant neighborhood offers an unmatched beach lifestyle with countless dining, shopping, and entertainment options.",
+      "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1080",
+        "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=1080",
+        "https://images.unsplash.com/photo-1574643156929-51fa098b0394?w=1080"
+      ],
+      "facilities": [
+        { "name": "JBR Beach", "distance": "100m", "type": "beach" },
+        { "name": "The Walk", "distance": "50m", "type": "entertainment" },
+        { "name": "Dubai Tram", "distance": "200m", "type": "transport" },
+        { "name": "Bluewaters Island", "distance": "500m", "type": "entertainment" }
+      ],
+      "highlights": [
+        "Direct beach access",
+        "The Walk promenade",
+        "Ain Dubai nearby",
+        "Vibrant nightlife",
+        "Family-friendly atmosphere"
+      ]
+    },
+    {
+      "slug": "arabian-ranches",
+      "name": "Arabian Ranches",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+      "description": "Family-friendly gated community",
+      "fullDescription": "Arabian Ranches is one of Dubai's most established family communities, offering spacious villas in a tranquil desert setting. This gated community features lush landscaping, excellent schools, a championship golf course, and comprehensive amenities. It's the perfect choice for families seeking space and serenity.",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1080",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1080",
+        "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1080"
+      ],
+      "facilities": [
+        { "name": "Arabian Ranches Golf Club", "distance": "500m", "type": "golf" },
+        { "name": "Ranches Primary School", "distance": "300m", "type": "school" },
+        { "name": "The Ranches Souk", "distance": "400m", "type": "mall" },
+        { "name": "Community Pool", "distance": "200m", "type": "leisure" }
+      ],
+      "highlights": [
+        "Gated community with 24/7 security",
+        "Championship golf course",
+        "Excellent schools nearby",
+        "Parks and green spaces",
+        "Community center and pools"
+      ]
+    },
+    {
+      "slug": "emirates-hills",
+      "name": "Emirates Hills",
+      "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+      "description": "Ultra-luxury villa community",
+      "fullDescription": "Emirates Hills is Dubai's most prestigious villa community, often referred to as the 'Beverly Hills of Dubai'. This exclusive gated enclave features palatial mansions with stunning golf course views, offering the ultimate in privacy and luxury living for high-net-worth individuals.",
+      "images": [
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1080",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1080",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1080"
+      ],
+      "facilities": [
+        { "name": "Montgomerie Golf Club", "distance": "200m", "type": "golf" },
+        { "name": "Emirates Hills Club", "distance": "300m", "type": "leisure" },
+        { "name": "Mall of the Emirates", "distance": "3km", "type": "mall" },
+        { "name": "Dubai Marina", "distance": "5km", "type": "entertainment" }
+      ],
+      "highlights": [
+        "Ultra-exclusive gated community",
+        "Golf course views",
+        "Palatial villa plots",
+        "Maximum privacy and security",
+        "Elite residents community"
+      ]
+    },
+    {
+      "slug": "dubai-hills",
+      "name": "Dubai Hills",
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+      "description": "Modern living with golf course views",
+      "fullDescription": "Dubai Hills Estate is a master-planned community offering a perfect blend of urban convenience and suburban tranquility. Featuring an 18-hole championship golf course, extensive parks, and Dubai Hills Mall, this neighborhood provides modern living with excellent amenities for families and professionals alike.",
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1080",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1080",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1080"
+      ],
+      "facilities": [
+        { "name": "Dubai Hills Mall", "distance": "500m", "type": "mall" },
+        { "name": "Dubai Hills Golf Club", "distance": "300m", "type": "golf" },
+        { "name": "Dubai Hills Park", "distance": "200m", "type": "park" },
+        { "name": "King's College Hospital", "distance": "1km", "type": "hospital" }
+      ],
+      "highlights": [
+        "18-hole championship golf course",
+        "Dubai Hills Mall",
+        "Extensive parks and green spaces",
+        "Premium schools nearby",
+        "Central location"
+      ]
+    },
+    {
+      "slug": "difc",
+      "name": "DIFC",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+      "description": "Financial hub with premium residences",
+      "fullDescription": "Dubai International Financial Centre (DIFC) is the leading financial hub in the Middle East, Africa, and South Asia region. Beyond its business significance, DIFC offers exclusive residential options, world-class art galleries, fine dining, and a sophisticated urban lifestyle in the heart of Dubai.",
+      "images": [
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1080",
+        "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1080",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1080"
+      ],
+      "facilities": [
+        { "name": "Gate Village", "distance": "100m", "type": "entertainment" },
+        { "name": "DIFC Metro", "distance": "200m", "type": "metro" },
+        { "name": "Dubai Mall", "distance": "1km", "type": "mall" },
+        { "name": "Art galleries", "distance": "50m", "type": "culture" }
+      ],
+      "highlights": [
+        "Premier financial district",
+        "Art galleries and cultural venues",
+        "Fine dining restaurants",
+        "Exclusive residential towers",
+        "Walking distance to Downtown"
+      ]
+    },
+    {
+      "slug": "jumeirah",
+      "name": "Jumeirah",
+      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+      "description": "Prestigious coastal neighborhood",
+      "fullDescription": "Jumeirah is one of Dubai's most established and prestigious residential areas, stretching along the beautiful coastline. Known for its luxury villas, pristine beaches, and proximity to landmarks like Burj Al Arab, Jumeirah offers an exclusive lifestyle with excellent schools and amenities.",
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1080",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1080",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1080"
+      ],
+      "facilities": [
+        { "name": "Jumeirah Beach", "distance": "500m", "type": "beach" },
+        { "name": "City Walk", "distance": "2km", "type": "mall" },
+        { "name": "Burj Al Arab", "distance": "3km", "type": "landmark" },
+        { "name": "Jumeirah Open Beach", "distance": "300m", "type": "beach" }
+      ],
+      "highlights": [
+        "Beachfront villa living",
+        "Prestigious address",
+        "Excellent schools",
+        "Close to Burj Al Arab",
+        "Established community"
+      ]
+    }
+  ]
+}

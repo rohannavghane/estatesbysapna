@@ -1,0 +1,240 @@
+{
+  "site": {
+    "name": "Estates By Sapna",
+    "tagline": "REAL ESTATE",
+    "description": "Your trusted partner in Dubai's premium property market. Excellence in every transaction.",
+    "pageTitle": "Estates By Sapna | Dubai Real Estate",
+    "copyright": "Estates By Sapna"
+  },
+  "contact": {
+    "phone": "+971 50 123 4567",
+    "phoneRaw": "+971501234567",
+    "email": "info@estatesbysapna.ae",
+    "secondaryEmail": "sapna@estatesbysapna.ae",
+    "whatsapp": "971501234567",
+    "address": {
+      "line1": "Dubai Marina",
+      "line2": "Dubai, UAE"
+    }
+  },
+  "socialMedia": {
+    "facebook": "https://www.instagram.com/estatesbysapna?igsh=bHpldGdlZDJxNXRv",
+    "instagram": "https://www.instagram.com/estatesbysapna?igsh=bHpldGdlZDJxNXRv",
+    "linkedin": "https://www.instagram.com/estatesbysapna?igsh=bHpldGdlZDJxNXRv"
+  },
+  "workingHours": {
+    "weekdays": {
+      "days": "Monday - Friday",
+      "hours": "9:00 AM - 6:00 PM"
+    },
+    "saturday": {
+      "days": "Saturday",
+      "hours": "10:00 AM - 4:00 PM"
+    },
+    "sunday": {
+      "days": "Sunday",
+      "hours": "By Appointment"
+    }
+  },
+  "hero": {
+    "title": "Your Trusted Partner in",
+    "titleHighlight": "Dubai Real Estate",
+    "description": "Discover exceptional properties in Dubai's most prestigious locations. Expert guidance for your dream home or investment.",
+    "primaryButtonText": "Find Your Dream Property",
+    "secondaryButtonText": "Get Free Consultation",
+    "backgroundImage": "https://images.unsplash.com/photo-1657106251952-2d584ebdf886?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkdWJhaSUyMHNreWxpbmUlMjBidXJqJTIwa2hhbGlmYSUyMG5pZ2h0fGVufDF8fHx8MTc2OTg0NDA3MHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  "trustIndicators": [
+    {
+      "icon": "Award",
+      "title": "RERA Licensed",
+      "subtitle": "Certified Professional"
+    },
+    {
+      "icon": "GraduationCap",
+      "title": "Trained Expert",
+      "subtitle": "Market Specialist"
+    },
+    {
+      "icon": "Clock",
+      "title": "Always Available",
+      "subtitle": "Quick Response"
+    },
+    {
+      "icon": "Users",
+      "title": "Client First",
+      "subtitle": "Personalized Service"
+    }
+  ],
+  "about": {
+    "agent": {
+      "name": "Sapna",
+      "fullName": "Sapna",
+      "title": "Your Dedicated Partner in Dubai Real Estate",
+      "image": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?w=800",
+      "bio": [
+        "As a RERA-certified real estate agent specializing in Dubai's luxury property market, I am committed to helping you find your perfect property match. Whether you're looking for a luxury villa, investment apartment, or your forever home, I provide personalized service tailored to your unique needs.",
+        "My comprehensive market knowledge of Dubai's neighborhoods, combined with strong relationships with developers and property owners, ensures you get access to the best opportunities in the market."
+      ],
+      "commitment": [
+        "I'm building a reputation one satisfied client at a time. My goal isn't just to close deals—it's to create lasting relationships based on trust, transparency, and results.",
+        "What sets me apart is my dedication to understanding YOUR unique needs and preferences. Whether you're looking for your forever home, an investment opportunity, or selling your property, I provide personalized guidance backed by thorough market research and unwavering integrity.",
+        "Let me prove my commitment to you. Your success is my success."
+      ]
+    },
+    "credentials": [
+      {
+        "text": "RERA Certified Agent"
+      },
+      {
+        "text": "Professionally Trained"
+      },
+      {
+        "text": "Luxury Property Specialist"
+      },
+      {
+        "text": "Client-First Approach"
+      }
+    ],
+    "trustIndicators": [
+      {
+        "title": "RERA Licensed",
+        "subtitle": "Fully Certified Agent"
+      },
+      {
+        "title": "24/7 Available",
+        "subtitle": "Quick Response Guaranteed"
+      },
+      {
+        "title": "100% Commitment",
+        "subtitle": "Your Success is My Mission"
+      },
+      {
+        "title": "Top Listings Access",
+        "subtitle": "Exclusive Property Database"
+      }
+    ],
+    "whyChooseMe": [
+      {
+        "title": "Personalized Attention",
+        "description": "You receive my full focus and dedication, not divided among hundreds of clients."
+      },
+      {
+        "title": "Latest Market Knowledge",
+        "description": "Recently certified with up-to-date training on Dubai's current market trends and regulations."
+      },
+      {
+        "title": "Technology-Driven",
+        "description": "Leveraging the latest tools to find you the best properties and negotiate optimal deals."
+      },
+      {
+        "title": "Always Available",
+        "description": "Flexible scheduling and responsive communication via WhatsApp, call, or email."
+      },
+      {
+        "title": "No Pressure Approach",
+        "description": "I'm here to guide you, not push you. Your satisfaction is my priority."
+      },
+      {
+        "title": "Strong Network",
+        "description": "Connected with Dubai's top developers, brokers, and property management companies."
+      }
+    ],
+    "propertyTypes": [
+      "Luxury Apartments & Penthouses",
+      "Villas & Townhouses",
+      "Off-Plan Investments",
+      "First-Time Buyer Guidance",
+      "Rental Property Management"
+    ],
+    "keyLocations": [
+      "Dubai Marina",
+      "Downtown Dubai",
+      "Palm Jumeirah",
+      "Business Bay",
+      "JBR (Jumeirah Beach Residence)",
+      "Arabian Ranches"
+    ],
+    "certifications": [
+      {
+        "title": "RERA Certified Real Estate Agent",
+        "organization": "Dubai Land Department",
+        "date": "2025"
+      },
+      {
+        "title": "Professional Real Estate Training",
+        "organization": "Dubai Real Estate Institute",
+        "date": "2025"
+      },
+      {
+        "title": "Luxury Property Specialist Certification",
+        "organization": "International Luxury Alliance",
+        "date": "2025"
+      },
+      {
+        "title": "Dubai Real Estate Market Expert",
+        "organization": "Property Professionals Program",
+        "date": "2025"
+      }
+    ],
+    "earlyClientBenefits": [
+      {
+        "title": "Priority Viewing Access",
+        "description": "First look at new listings matching your criteria"
+      },
+      {
+        "title": "Extended Consultations",
+        "description": "Unlimited time to discuss your needs and preferences"
+      },
+      {
+        "title": "Complimentary Market Analysis",
+        "description": "Free detailed property valuation and market reports"
+      },
+      {
+        "title": "Personalized Property Alerts",
+        "description": "Instant notifications for properties matching your requirements"
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "Get In Touch",
+    "subtitle": "Have questions about properties or need expert advice? I'm here to help.",
+    "formTitle": "Send Me a Message",
+    "instantContactTitle": "Prefer Instant Communication?",
+    "instantContactSubtitle": "Get immediate assistance through WhatsApp or give me a call",
+    "officeTitle": "Dubai Marina Office"
+  },
+  "cta": {
+    "title": "Ready to Find Your Dream Property?",
+    "subtitle": "Get in touch today for a free consultation. I'm here to help you navigate Dubai's real estate market and find the perfect property for your needs.",
+    "primaryButtonText": "Schedule Free Consultation",
+    "secondaryButtonText": "Chat on WhatsApp"
+  },
+  "footer": {
+    "quickLinks": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Properties",
+        "path": "/properties"
+      },
+      {
+        "name": "About",
+        "path": "/about"
+      },
+      {
+        "name": "Contact",
+        "path": "/contact"
+      }
+    ],
+    "popularAreas": [
+      "Dubai Marina",
+      "Downtown Dubai",
+      "Palm Jumeirah",
+      "Business Bay",
+      "Jumeirah Beach Residence"
+    ]
+  }
+}
