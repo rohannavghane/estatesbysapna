@@ -1,15 +1,18 @@
-import { Search } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import { siteConfig } from '@/app/data/site-config';
+import { Search } from 'lucide-react';
 
 export function HeroSection() {
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
   return (
     <div className="relative h-[600px] md:h-[700px] flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src={siteConfig.hero.backgroundImage}
+          src={siteConfig.heroBackgroundImage}
           alt="Dubai Skyline"
           className="w-full h-full object-cover"
         />
@@ -22,12 +25,12 @@ export function HeroSection() {
           className="text-4xl md:text-6xl lg:text-7xl mb-6"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
-          {siteConfig.hero.title}
+          {siteConfig.heroTitle}
           <br />
-          <span className="text-[var(--gold)]">{siteConfig.hero.titleHighlight}</span>
+          <span className="text-[var(--gold)]">{siteConfig.heroTitleHighlight}</span>
         </h1>
         <p className="text-lg md:text-xl mb-8 text-gray-200 max-w-3xl mx-auto">
-          {siteConfig.hero.description}
+          {siteConfig.heroDescription}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
@@ -35,7 +38,7 @@ export function HeroSection() {
             className="bg-[var(--gold)] hover:bg-[var(--gold)]/90 text-[var(--navy)] h-12 px-8"
           >
             <Search className="h-5 w-5 mr-2" />
-            {siteConfig.hero.primaryButtonText}
+            {siteConfig.heroPrimaryButtonText}
           </Button>
           <Button
             size="lg"
@@ -43,7 +46,7 @@ export function HeroSection() {
             className="border-white !bg-transparent !text-white hover:!bg-white hover:!text-[var(--navy)] h-12 px-8"
             asChild
           >
-            <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noopener noreferrer">{siteConfig.hero.secondaryButtonText}</a>
+            <a href={`https://wa.me/${siteConfig.whatsappNumber}`} target="_blank" rel="noopener noreferrer">{siteConfig.heroSecondaryButtonText}</a>
           </Button>
         </div>
       </div>

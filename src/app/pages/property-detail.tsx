@@ -12,15 +12,17 @@ import { MortgageCalculator } from '@/app/components/property/mortgage-calculato
 import { ContactForm } from '@/app/components/property/contact-form';
 import { SimilarProperties } from '@/app/components/property/similar-properties';
 import { useProperty } from '@/app/hooks/useProperties';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { toast } from 'sonner';
 import { Toaster } from '@/app/components/ui/sonner';
 
 export function PropertyDetailPage() {
   const { id } = useParams();
   const { property, loading, error } = useProperty(id || '');
+  const { siteConfig, loading: configLoading } = useSiteConfig();
   const [isFavorite, setIsFavorite] = useState(false);
 
-  if (loading) {
+  if (loading || configLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-[var(--navy)]" />
@@ -28,7 +30,7 @@ export function PropertyDetailPage() {
     );
   }
 
-  if (error || !property) {
+  if (error || !property || !siteConfig) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -70,7 +72,7 @@ export function PropertyDetailPage() {
 
   const handleWhatsApp = () => {
     const message = `Hi, I'm interested in ${property.title} (${property.location})`;
-    window.open(`https://wa.me/971501234567?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
@@ -184,7 +186,7 @@ export function PropertyDetailPage() {
                   size="lg"
                   asChild
                 >
-                  <a href="tel:+971501234567">
+                  <a href={`tel:${siteConfig.contactPhoneRaw}`}>
                     <Phone className="h-5 w-5 mr-2" />
                     Call Now
                   </a>
@@ -195,7 +197,7 @@ export function PropertyDetailPage() {
                   size="lg"
                   asChild
                 >
-                  <a href="mailto:info@dubaielite.ae">
+                  <a href={`mailto:${siteConfig.contactEmail}`}>
                     <Mail className="h-5 w-5 mr-2" />
                     Send Email
                   </a>
@@ -207,17 +209,18 @@ export function PropertyDetailPage() {
                 <h3 className="font-semibold mb-4">Your Agent</h3>
                 <div className="flex items-center mb-4">
                   <img
-                    src="https://images.unsplash.com/photo-1581065178047-8ee15951ede6?w=100"
-                    alt="Agent"
+                    src={siteConfig.agentImage}
+                    alt={siteConfig.agentFullName}
                     className="w-16 h-16 rounded-full object-cover mr-3"
+                    style={{ objectPosition: 'center 30%' }}
                   />
                   <div>
-                    <div className="font-semibold">Sarah Al-Mansouri</div>
-                    <div className="text-sm text-muted-foreground">Senior Agent</div>
+                    <div className="font-semibold">{siteConfig.agentFullName}</div>
+                    <div className="text-sm text-muted-foreground">Real Estate Agent</div>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  8+ years of experience in Dubai's luxury real estate market
+                  {siteConfig.agentBio[0]}
                 </p>
               </div>
             </div>

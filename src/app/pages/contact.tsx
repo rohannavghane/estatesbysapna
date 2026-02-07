@@ -8,7 +8,8 @@ import { Label } from '@/app/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 import { toast } from 'sonner';
 import { Toaster } from '@/app/components/ui/sonner';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+import { siteConfig as staticConfig } from '@/app/data/site-config';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,11 @@ export function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const { contact, contactPage, socialMedia, workingHours, googleForm } = siteConfig;
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
+
+  const { googleForm } = staticConfig;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,28 +102,28 @@ export function ContactPage() {
     {
       icon: Phone,
       title: 'Phone',
-      details: [contact.phone],
-      action: `tel:${contact.phoneRaw}`,
+      details: [siteConfig.contactPhone],
+      action: `tel:${siteConfig.contactPhoneRaw}`,
       actionLabel: 'Call Now',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      details: [contact.phone],
-      action: `https://wa.me/${contact.whatsapp}`,
+      details: [siteConfig.contactPhone],
+      action: `https://wa.me/${siteConfig.whatsappNumber}`,
       actionLabel: 'Chat Now',
     },
     {
       icon: Mail,
       title: 'Email',
-      details: [contact.email, contact.secondaryEmail].filter(Boolean),
-      action: `mailto:${contact.email}`,
+      details: [siteConfig.contactEmail, siteConfig.contactSecondaryEmail].filter(Boolean),
+      action: `mailto:${siteConfig.contactEmail}`,
       actionLabel: 'Send Email',
     },
     {
       icon: MapPin,
       title: 'Office Location',
-      details: [contact.address.line1, contact.address.line2],
+      details: [siteConfig.officeAddress.line1, siteConfig.officeAddress.line2],
       action: null,
       actionLabel: null,
     },
@@ -133,10 +138,10 @@ export function ContactPage() {
             className="text-4xl md:text-5xl mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            {contactPage.title}
+            {siteConfig.contactPageTitle}
           </h1>
           <p className="text-gray-300 text-lg max-w-3xl">
-            {contactPage.subtitle}
+            {siteConfig.contactPageSubtitle}
           </p>
         </div>
       </div>
@@ -195,16 +200,16 @@ export function ContactPage() {
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">{workingHours.weekdays.days}</span>
-                    <span className="font-medium">{workingHours.weekdays.hours}</span>
+                    <span className="text-muted-foreground">{siteConfig.workingHours.weekdays.days}</span>
+                    <span className="font-medium">{siteConfig.workingHours.weekdays.hours}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">{workingHours.saturday.days}</span>
-                    <span className="font-medium">{workingHours.saturday.hours}</span>
+                    <span className="text-muted-foreground">{siteConfig.workingHours.saturday.days}</span>
+                    <span className="font-medium">{siteConfig.workingHours.saturday.hours}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">{workingHours.sunday.days}</span>
-                    <span className="font-medium">{workingHours.sunday.hours}</span>
+                    <span className="text-muted-foreground">{siteConfig.workingHours.sunday.days}</span>
+                    <span className="font-medium">{siteConfig.workingHours.sunday.hours}</span>
                   </div>
                 </div>
               </CardContent>
@@ -214,9 +219,9 @@ export function ContactPage() {
             <div>
               <h3 className="font-semibold mb-4">Follow Me</h3>
               <div className="flex gap-3">
-                {socialMedia.facebook && (
+                {siteConfig.socialMedia.facebook && (
                   <a
-                    href={socialMedia.facebook}
+                    href={siteConfig.socialMedia.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-[var(--navy)] text-white rounded-full flex items-center justify-center hover:bg-[var(--gold)] hover:text-[var(--navy)] transition-colors"
@@ -224,9 +229,9 @@ export function ContactPage() {
                     F
                   </a>
                 )}
-                {socialMedia.instagram && (
+                {siteConfig.socialMedia.instagram && (
                   <a
-                    href={socialMedia.instagram}
+                    href={siteConfig.socialMedia.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-[var(--navy)] text-white rounded-full flex items-center justify-center hover:bg-[var(--gold)] hover:text-[var(--navy)] transition-colors"
@@ -234,9 +239,9 @@ export function ContactPage() {
                     I
                   </a>
                 )}
-                {socialMedia.linkedin && (
+                {siteConfig.socialMedia.linkedin && (
                   <a
-                    href={socialMedia.linkedin}
+                    href={siteConfig.socialMedia.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-[var(--navy)] text-white rounded-full flex items-center justify-center hover:bg-[var(--gold)] hover:text-[var(--navy)] transition-colors"
@@ -256,7 +261,7 @@ export function ContactPage() {
                   className="text-2xl mb-6"
                   style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
                 >
-                  {contactPage.formTitle}
+                  {siteConfig.contactPageFormTitle}
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -357,7 +362,7 @@ export function ContactPage() {
                       size="lg"
                       asChild
                     >
-                      <a href={`https://wa.me/${contact.whatsapp}`}>
+                      <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
                         <MessageCircle className="h-4 w-4 mr-2" />
                         WhatsApp Instead
                       </a>
@@ -376,15 +381,15 @@ export function ContactPage() {
               <Card>
                 <CardContent className="p-0 overflow-hidden rounded-lg">
                   <a
-                    href={contact.mapUrl}
+                    href={siteConfig.contactMapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block relative w-full h-96 group cursor-pointer"
                   >
-                    {contact.mapEmbedUrl ? (
+                    {siteConfig.contactMapEmbedUrl ? (
                       <>
                         <iframe
-                          src={contact.mapEmbedUrl}
+                          src={siteConfig.contactMapEmbedUrl}
                           width="100%"
                           height="100%"
                           style={{ border: 0 }}
@@ -406,10 +411,10 @@ export function ContactPage() {
                         <div className="text-center">
                           <MapPin className="h-12 w-12 text-[var(--gold)] mx-auto mb-3" />
                           <h3 className="text-xl mb-1" style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}>
-                            {contactPage.officeTitle}
+                            {siteConfig.contactPageOfficeTitle}
                           </h3>
                           <p className="text-sm text-muted-foreground">
-                            {contact.address.line1}{contact.address.line2 ? `, ${contact.address.line2}` : ''}
+                            {siteConfig.officeAddress.line1}{siteConfig.officeAddress.line2 ? `, ${siteConfig.officeAddress.line2}` : ''}
                           </p>
                         </div>
                       </div>
@@ -428,10 +433,10 @@ export function ContactPage() {
               className="text-2xl md:text-3xl mb-3"
               style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
             >
-              {contactPage.instantContactTitle}
+              {siteConfig.contactPageInstantContactTitle}
             </h2>
             <p className="text-muted-foreground">
-              {contactPage.instantContactSubtitle}
+              {siteConfig.contactPageInstantContactSubtitle}
             </p>
           </div>
 
@@ -441,7 +446,7 @@ export function ContactPage() {
               size="lg"
               asChild
             >
-              <a href={`https://wa.me/${contact.whatsapp}`}>
+              <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Chat on WhatsApp
               </a>
@@ -452,7 +457,7 @@ export function ContactPage() {
               size="lg"
               asChild
             >
-              <a href={`tel:${contact.phoneRaw}`}>
+              <a href={`tel:${siteConfig.contactPhoneRaw}`}>
                 <Phone className="h-5 w-5 mr-2" />
                 Call Now
               </a>

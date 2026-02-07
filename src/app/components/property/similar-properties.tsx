@@ -1,5 +1,5 @@
 import { PropertyCard } from './property-card';
-import { properties } from '@/app/data/properties';
+import { useProperties } from '@/app/hooks/useProperties';
 
 interface SimilarPropertiesProps {
   currentPropertyId: string;
@@ -7,11 +7,13 @@ interface SimilarPropertiesProps {
 }
 
 export function SimilarProperties({ currentPropertyId, propertyType }: SimilarPropertiesProps) {
+  const { properties, loading } = useProperties();
+
   const similarProperties = properties
     .filter(p => p.id !== currentPropertyId && p.type === propertyType)
     .slice(0, 3);
 
-  if (similarProperties.length === 0) return null;
+  if (loading || similarProperties.length === 0) return null;
 
   return (
     <div className="mt-20">

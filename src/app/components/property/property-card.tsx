@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
 import { Button } from '@/app/components/ui/button';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import type { Property } from '@/app/data/properties';
 
 interface PropertyCardProps {
@@ -11,6 +12,8 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property }: PropertyCardProps) {
+  const { siteConfig } = useSiteConfig();
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-AE', {
       style: 'currency',
@@ -22,8 +25,9 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
+    if (!siteConfig) return;
     const message = `Hi, I'm interested in ${property.title} (${property.location})`;
-    window.open(`https://wa.me/971501234567?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

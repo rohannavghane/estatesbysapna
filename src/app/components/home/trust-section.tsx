@@ -1,5 +1,5 @@
 import { Award, Clock, Handshake, GraduationCap, Users } from 'lucide-react';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Award,
@@ -10,6 +10,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export function TrustSection() {
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig?.trustIndicators) return null;
+
   const stats = siteConfig.trustIndicators.map((indicator) => {
     const IconComponent = iconMap[indicator.icon] || Award;
     return {

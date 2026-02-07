@@ -1,10 +1,14 @@
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 
 export function WhatsAppButton() {
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
+
   const message = 'Hello, I am interested in your properties.';
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
     <a

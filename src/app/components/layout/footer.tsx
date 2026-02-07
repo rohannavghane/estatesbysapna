@@ -1,8 +1,27 @@
 import { Link } from 'react-router';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+
+const quickLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Properties', path: '/properties' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
+];
+
+const popularAreas = [
+  'Dubai Marina',
+  'Downtown Dubai',
+  'Palm Jumeirah',
+  'Business Bay',
+  'Jumeirah Beach Residence',
+];
 
 export function Footer() {
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
+
   return (
     <footer className="bg-[var(--navy)] text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -11,13 +30,13 @@ export function Footer() {
           <div>
             <div className="flex flex-col mb-4">
               <span className="text-2xl" style={{ fontFamily: 'var(--font-heading)' }}>
-                <span className="text-white">{siteConfig.site.name.split(' ').slice(0, -1).join(' ')}</span>
-                <span className="text-[var(--gold)]"> {siteConfig.site.name.split(' ').slice(-1)}</span>
+                <span className="text-white">{siteConfig.siteName.split(' ').slice(0, -1).join(' ')}</span>
+                <span className="text-[var(--gold)]"> {siteConfig.siteName.split(' ').slice(-1)}</span>
               </span>
-              <span className="text-xs text-gray-400 tracking-wider">{siteConfig.site.tagline}</span>
+              <span className="text-xs text-gray-400 tracking-wider">{siteConfig.siteTagline}</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-              {siteConfig.site.description}
+              {siteConfig.siteDescription}
             </p>
             <div className="flex space-x-4">
               {siteConfig.socialMedia.facebook && (
@@ -35,7 +54,7 @@ export function Footer() {
                   <Linkedin className="h-5 w-5" />
                 </a>
               )}
-              <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/${siteConfig.whatsappNumber}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
               </a>
             </div>
@@ -45,7 +64,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Quick Links</h3>
             <ul className="space-y-2">
-              {siteConfig.footer.quickLinks.map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className="text-gray-400 hover:text-[var(--gold)] transition-colors text-sm">
                     {link.name}
@@ -59,7 +78,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Popular Areas</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              {siteConfig.footer.popularAreas.map((area) => (
+              {popularAreas.map((area) => (
                 <li key={area} className="hover:text-[var(--gold)] transition-colors cursor-pointer">{area}</li>
               ))}
             </ul>
@@ -71,20 +90,20 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <Phone className="h-4 w-4 mt-1 text-[var(--gold)] flex-shrink-0" />
-                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors text-sm">
-                  {siteConfig.contact.phone}
+                <a href={`tel:${siteConfig.contactPhoneRaw}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors text-sm">
+                  {siteConfig.contactPhone}
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="h-4 w-4 mt-1 text-[var(--gold)] flex-shrink-0" />
-                <a href={`mailto:${siteConfig.contact.email}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors text-sm">
-                  {siteConfig.contact.email}
+                <a href={`mailto:${siteConfig.contactEmail}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors text-sm">
+                  {siteConfig.contactEmail}
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 mt-1 text-[var(--gold)] flex-shrink-0" />
                 <span className="text-gray-400 text-sm">
-                  {siteConfig.contact.address.line1}, {siteConfig.contact.address.line2}
+                  {siteConfig.officeAddress.line1}, {siteConfig.officeAddress.line2}
                 </span>
               </li>
             </ul>
@@ -92,7 +111,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} {siteConfig.site.copyright}. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {siteConfig.siteName}. All rights reserved.</p>
         </div>
       </div>
     </footer>

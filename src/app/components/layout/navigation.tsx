@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -25,10 +28,10 @@ export function Navigation() {
           <Link to="/" className="flex items-center">
             <div className="flex flex-col">
               <span className="text-2xl" style={{ fontFamily: 'var(--font-heading)' }}>
-                <span className="text-[var(--navy)]">{siteConfig.site.name.split(' ').slice(0, -1).join(' ')}</span>
-                <span className="text-[var(--gold)]"> {siteConfig.site.name.split(' ').slice(-1)}</span>
+                <span className="text-[var(--navy)]">{siteConfig.siteName.split(' ').slice(0, -1).join(' ')}</span>
+                <span className="text-[var(--gold)]"> {siteConfig.siteName.split(' ').slice(-1)}</span>
               </span>
-              <span className="text-xs text-muted-foreground tracking-wider">{siteConfig.site.tagline}</span>
+              <span className="text-xs text-muted-foreground tracking-wider">{siteConfig.siteTagline}</span>
             </div>
           </Link>
 
@@ -53,7 +56,7 @@ export function Navigation() {
               className="border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white"
               asChild
             >
-              <a href={`tel:${siteConfig.contact.phoneRaw}`}>
+              <a href={`tel:${siteConfig.contactPhoneRaw}`}>
                 <Phone className="h-4 w-4 mr-2" />
                 Call Now
               </a>
@@ -93,7 +96,7 @@ export function Navigation() {
                 className="border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white"
                 asChild
               >
-                <a href={`tel:${siteConfig.contact.phoneRaw}`}>
+                <a href={`tel:${siteConfig.contactPhoneRaw}`}>
                   <Phone className="h-4 w-4 mr-2" />
                   Call Now
                 </a>

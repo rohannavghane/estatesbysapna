@@ -13,12 +13,15 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
+  // Handle case where images is null, undefined, or empty
+  const validImages = images && images.length > 0 ? images : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800'];
+
   const nextImage = () => {
-    setSelectedImage((prev) => (prev + 1) % images.length);
+    setSelectedImage((prev) => (prev + 1) % validImages.length);
   };
 
   const prevImage = () => {
-    setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
+    setSelectedImage((prev) => (prev - 1 + validImages.length) % validImages.length);
   };
 
   return (
@@ -31,7 +34,7 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
             onClick={() => setIsLightboxOpen(true)}
           >
             <ImageWithFallback
-              src={images[0]}
+              src={validImages[0]}
               alt={title}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
@@ -39,7 +42,7 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
 
           {/* Thumbnail Grid */}
           <div className="hidden md:grid grid-rows-2 gap-2">
-            {images.slice(1, 3).map((image, index) => (
+            {validImages.slice(1, 3).map((image, index) => (
               <div
                 key={index}
                 className="relative overflow-hidden rounded-lg cursor-pointer"
@@ -55,19 +58,19 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
                 />
               </div>
             ))}
-            {images.length > 3 && (
+            {validImages.length > 3 && (
               <div
                 className="relative overflow-hidden rounded-lg cursor-pointer"
                 onClick={() => setIsLightboxOpen(true)}
               >
                 <ImageWithFallback
-                  src={images[3]}
+                  src={validImages[3]}
                   alt={`${title} 4`}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                   <span className="text-white text-xl font-semibold">
-                    +{images.length - 3} more
+                    +{validImages.length - 3} more
                   </span>
                 </div>
               </div>
@@ -99,7 +102,7 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
             </Button>
 
             <img
-              src={images[selectedImage]}
+              src={validImages[selectedImage]}
               alt={`${title} ${selectedImage + 1}`}
               className="max-h-full max-w-full object-contain"
             />
@@ -114,7 +117,7 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
             </Button>
 
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
-              {selectedImage + 1} / {images.length}
+              {selectedImage + 1} / {validImages.length}
             </div>
           </div>
         </DialogContent>

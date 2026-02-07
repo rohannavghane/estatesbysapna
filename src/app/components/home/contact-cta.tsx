@@ -5,11 +5,11 @@ import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { toast } from 'sonner';
-import { siteConfig } from '@/app/data/site-config';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+import { siteConfig as staticConfig } from '@/app/data/site-config';
 
 export function ContactCTA() {
-  const { cta, contact, googleForm } = siteConfig;
-
+  const { siteConfig } = useSiteConfig();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +18,10 @@ export function ContactCTA() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  if (!siteConfig) return null;
+
+  const { googleForm } = staticConfig;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,12 +79,12 @@ export function ContactCTA() {
               className="text-3xl md:text-4xl mb-6"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              {cta.title.split('?')[0]}
+              {siteConfig.ctaTitle.split('?')[0]}
               <br />
-              <span className="text-[var(--gold)]">{cta.title.includes('?') ? '?' : ''}</span>
+              <span className="text-[var(--gold)]">{siteConfig.ctaTitle.includes('?') ? '?' : ''}</span>
             </h2>
             <p className="text-gray-300 mb-8">
-              {cta.subtitle}
+              {siteConfig.ctaSubtitle}
             </p>
 
             <div className="space-y-4">
@@ -90,8 +94,8 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-400">Call or WhatsApp</div>
-                  <a href={`tel:${contact.phoneRaw}`} className="text-lg hover:text-[var(--gold)] transition-colors">
-                    {contact.phone}
+                  <a href={`tel:${siteConfig.contactPhoneRaw}`} className="text-lg hover:text-[var(--gold)] transition-colors">
+                    {siteConfig.contactPhone}
                   </a>
                 </div>
               </div>
@@ -102,8 +106,8 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-400">Email</div>
-                  <a href={`mailto:${contact.email}`} className="text-lg hover:text-[var(--gold)] transition-colors">
-                    {contact.email}
+                  <a href={`mailto:${siteConfig.contactEmail}`} className="text-lg hover:text-[var(--gold)] transition-colors">
+                    {siteConfig.contactEmail}
                   </a>
                 </div>
               </div>
@@ -114,9 +118,9 @@ export function ContactCTA() {
                   size="lg"
                   asChild
                 >
-                  <a href={`https://wa.me/${contact.whatsapp}`}>
+                  <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
                     <MessageCircle className="h-5 w-5 mr-2" />
-                    {cta.secondaryButtonText}
+                    Chat on WhatsApp
                   </a>
                 </Button>
               </div>

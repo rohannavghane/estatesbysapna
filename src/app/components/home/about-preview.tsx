@@ -2,14 +2,14 @@ import { Link } from 'react-router';
 import { ChevronRight, Award, Clock } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import { siteConfig } from '@/app/data/site-config';
-import { getPublicAssetPath } from '@/app/lib/utils';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 
 export function AboutPreview() {
-  const { about } = siteConfig;
-  const agentImageSrc = about.agent.image.startsWith('http')
-    ? about.agent.image
-    : getPublicAssetPath(about.agent.image);
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
+
+  const agentImageSrc = siteConfig.agentImage;
 
   return (
     <section className="py-20 bg-white">
@@ -19,7 +19,7 @@ export function AboutPreview() {
             <div className="relative rounded-lg overflow-hidden shadow-2xl">
               <ImageWithFallback
                 src={agentImageSrc}
-                alt={about.agent.fullName}
+                alt={siteConfig.agentFullName}
                 className="w-full h-[500px] object-cover"
                 style={{ objectPosition: 'center 30%' }}
               />
@@ -31,10 +31,10 @@ export function AboutPreview() {
               className="text-3xl md:text-4xl mb-6"
               style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
             >
-              {about.agent.title}
+              {siteConfig.agentTitle}
             </h2>
             <div className="space-y-4 text-muted-foreground mb-8">
-              {about.agent.bio.map((paragraph, index) => (
+              {siteConfig.agentBio.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
@@ -49,7 +49,7 @@ export function AboutPreview() {
                     className="text-lg mb-1 font-semibold"
                     style={{ color: 'var(--navy)' }}
                   >
-                    Sapna Navghane
+                    {siteConfig.agentFullName}
                   </div>
                   <div className="text-sm text-muted-foreground">Real Estate Agent</div>
                 </div>

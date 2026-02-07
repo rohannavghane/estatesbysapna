@@ -13,7 +13,15 @@
       "Bash(npm install:*)",
       "Bash(npm run studio:dev:*)",
       "Bash(npm uninstall:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__playwright__browser_close",
+      "Bash(npm run import:siteconfig:*)",
+      "Bash(echo:*)",
+      "mcp__playwright__browser_evaluate"
     ]
   }
 }

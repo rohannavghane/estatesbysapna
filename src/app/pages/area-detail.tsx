@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router';
 import { MapPin, Building, TreePine, Waves, Train, ShoppingBag, GraduationCap, Dumbbell, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
 import { useProperties } from '@/app/hooks/useProperties';
 import { useNeighborhood } from '@/app/hooks/useNeighborhoods';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { PropertyCard } from '@/app/components/property/property-card';
 import { Button } from '@/app/components/ui/button';
@@ -26,6 +27,7 @@ export function AreaDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { properties, loading: propertiesLoading, error: propertiesError } = useProperties();
   const { neighborhood: area, loading: areaLoading, error: areaError } = useNeighborhood(slug || '');
+  const { siteConfig } = useSiteConfig();
 
   const loading = propertiesLoading || areaLoading;
   const error = propertiesError || areaError;
@@ -242,7 +244,7 @@ export function AreaDetailPage() {
               className="bg-[var(--gold)] hover:bg-[var(--gold)]/90 text-[var(--navy)]"
               asChild
             >
-              <a href="https://wa.me/971501234567" target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/${siteConfig?.whatsappNumber || ''}`} target="_blank" rel="noopener noreferrer">
                 WhatsApp Us
               </a>
             </Button>

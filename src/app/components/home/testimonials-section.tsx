@@ -1,24 +1,27 @@
-import { User, Award, Network } from 'lucide-react';
+import { User, Award, Network, TrendingUp, Laptop, Clock, MessageSquare } from 'lucide-react';
 import { Card, CardContent } from '@/app/components/ui/card';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  User,
+  Award,
+  Network,
+  TrendingUp,
+  Laptop,
+  Clock,
+  MessageSquare,
+};
 
 export function TestimonialsSection() {
-  const whyChooseMe = [
-    {
-      icon: User,
-      title: 'Personalized Attention',
-      description: 'With dedicated focus on your unique needs, you\'ll receive the time and attention your property search deserves—not just another number in a large portfolio.',
-    },
-    {
-      icon: Award,
-      title: 'Trusted Professional',
-      description: 'Verified professional with comprehensive market training, equipped with the latest knowledge on Dubai\'s property regulations and market trends.',
-    },
-    {
-      icon: Network,
-      title: 'Strong Industry Network',
-      description: 'Connected with top developers, property owners, and industry professionals to bring you exclusive opportunities and the best deals.',
-    },
-  ];
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig?.aboutWhyChooseMe) return null;
+
+  const whyChooseMe = siteConfig.aboutWhyChooseMe.map((item, index) => ({
+    icon: iconMap[Object.keys(iconMap)[index % Object.keys(iconMap).length]],
+    title: item.title,
+    description: item.description,
+  }));
 
   return (
     <section className="py-20 bg-[var(--light-gray)]">

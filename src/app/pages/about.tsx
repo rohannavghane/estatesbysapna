@@ -1,8 +1,7 @@
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent } from '@/app/components/ui/card';
-import { siteConfig } from '@/app/data/site-config';
-import { getPublicAssetPath } from '@/app/lib/utils';
+import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import {
   Award,
   Bell,
@@ -32,10 +31,9 @@ import { Link } from 'react-router';
 // };
 
 export function AboutPage() {
-  const { about, contact, cta } = siteConfig;
-  const agentImageSrc = about.agent.image.startsWith('http')
-    ? about.agent.image
-    : getPublicAssetPath(about.agent.image);
+  const { siteConfig } = useSiteConfig();
+
+  if (!siteConfig) return null;
 
   const credentialIcons = [Check, GraduationCap, Home, Star];
   const trustIcons = [Award, Clock, Handshake, TrendingUp];
@@ -54,8 +52,8 @@ export function AboutPage() {
               <div className="relative">
                 <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[3px] border-[var(--gold)] shadow-lg">
                   <ImageWithFallback
-                    src={agentImageSrc}
-                    alt={about.agent.fullName}
+                    src={siteConfig.agentImage}
+                    alt={siteConfig.agentFullName}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center 30%' }}
                   />
@@ -70,13 +68,13 @@ export function AboutPage() {
                 className="text-3xl md:text-4xl lg:text-5xl mb-4"
                 style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}
               >
-                {about.agent.fullName}
+                {siteConfig.agentFullName}
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-6">
-                {about.agent.title}
+                {siteConfig.agentTitle}
               </p>
               <div className="text-sm md:text-base text-gray-600 leading-relaxed mb-8 max-w-2xl space-y-4">
-                {about.agent.bio.map((paragraph, index) => (
+                {siteConfig.agentBio.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
@@ -95,7 +93,7 @@ export function AboutPage() {
                   className="border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white h-12 px-8"
                   asChild
                 >
-                  <a href={`https://wa.me/${contact.whatsapp}`}>
+                  <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
                     <MessageCircle className="h-5 w-5 mr-2" />
                     Message on WhatsApp
                   </a>
@@ -110,7 +108,7 @@ export function AboutPage() {
       <section className="py-12 bg-[var(--light-gray)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {about.credentials.map((badge, index) => {
+            {siteConfig.aboutCredentials.map((badge, index) => {
               const IconComponent = credentialIcons[index % credentialIcons.length];
               return (
                 <div
@@ -132,7 +130,7 @@ export function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {about.trustIndicators.map((indicator, index) => {
+            {siteConfig.aboutTrustIndicators.map((indicator, index) => {
               const IconComponent = trustIcons[index % trustIcons.length];
               return (
                 <div key={index} className="text-center">
@@ -169,7 +167,7 @@ export function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {about.whyChooseMe.map((item, index) => {
+            {siteConfig.aboutWhyChooseMe.map((item, index) => {
               const IconComponent = whyChooseMeIcons[index % whyChooseMeIcons.length];
               return (
                 <div
@@ -218,7 +216,7 @@ export function AboutPage() {
                 Property Types I Specialize In
               </h3>
               <div className="space-y-4">
-                {about.propertyTypes.map((type, index) => (
+                {siteConfig.aboutPropertyTypes.map((type, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-[var(--gold)] flex-shrink-0" />
                     <span className="text-base text-gray-700">{type}</span>
@@ -236,7 +234,7 @@ export function AboutPage() {
                 Key Dubai Locations
               </h3>
               <div className="space-y-4">
-                {about.keyLocations.map((location, index) => (
+                {siteConfig.aboutKeyLocations.map((location, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-[var(--gold)] flex-shrink-0" />
                     <span className="text-base text-gray-700">{location}</span>
@@ -259,7 +257,7 @@ export function AboutPage() {
           </h2>
 
           <div className="space-y-6 text-lg leading-relaxed text-gray-700">
-            {about.agent.commitment.map((paragraph, index) => (
+            {siteConfig.agentCommitment.map((paragraph, index) => (
               <p key={index} className={index === 0 ? "relative pl-8" : ""}>
                 {index === 0 && (
                   <span className="absolute left-0 top-0 text-5xl text-[var(--gold)] leading-none" style={{ fontFamily: 'var(--font-heading)' }}>"</span>
@@ -284,7 +282,7 @@ export function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {about.certifications.map((cert, index) => {
+            {siteConfig.aboutCertifications.map((cert, index) => {
               const IconComponent = certIcons[index % certIcons.length];
               return (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -325,7 +323,7 @@ export function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {about.earlyClientBenefits.map((benefit, index) => {
+              {siteConfig.aboutEarlyClientBenefits.map((benefit, index) => {
                 const IconComponent = benefitIcons[index % benefitIcons.length];
                 return (
                   <div key={index}>
@@ -368,10 +366,10 @@ export function AboutPage() {
             className="text-3xl md:text-4xl mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            {cta.title}
+            {siteConfig.ctaTitle}
           </h2>
           <p className="text-xl text-white/80 mb-10">
-            {cta.subtitle}
+            {siteConfig.ctaSubtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -380,7 +378,7 @@ export function AboutPage() {
               className="bg-[var(--gold)] hover:bg-[var(--gold)]/90 text-[var(--navy)] h-12 px-8"
               asChild
             >
-              <Link to="/contact">{cta.primaryButtonText}</Link>
+              <Link to="/contact">{siteConfig.ctaPrimaryButtonText}</Link>
             </Button>
             <Button
               size="lg"
@@ -388,23 +386,23 @@ export function AboutPage() {
               className="bg-white border-white text-[#25D366] hover:bg-white/90 h-12 px-8"
               asChild
             >
-              <a href={`https://wa.me/${contact.whatsapp}`}>
+              <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
                 <MessageCircle className="h-5 w-5 mr-2" />
-                {cta.secondaryButtonText}
+                Chat on WhatsApp
               </a>
             </Button>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-sm text-white/70">
-            <a href={`tel:${contact.phoneRaw}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
+            <a href={`tel:${siteConfig.contactPhoneRaw}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
               <Phone className="h-4 w-4" />
-              {contact.phone}
+              {siteConfig.contactPhone}
             </a>
-            <a href={`mailto:${contact.email}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
+            <a href={`mailto:${siteConfig.contactEmail}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
               <Mail className="h-4 w-4" />
-              {contact.email}
+              {siteConfig.contactEmail}
             </a>
-            <a href={`https://wa.me/${contact.whatsapp}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
+            <a href={`https://wa.me/${siteConfig.whatsappNumber}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>
