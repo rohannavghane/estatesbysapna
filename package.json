@@ -6,6 +6,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "studio": "cd studio && sanity dev",
     "studio:dev": "cd studio && sanity dev",
     "studio:build": "cd studio && sanity build",
     "studio:deploy": "cd studio && sanity deploy",

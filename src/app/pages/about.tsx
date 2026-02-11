@@ -93,7 +93,7 @@ export function AboutPage() {
                   className="border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white h-12 px-8"
                   asChild
                 >
-                  <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
+                  <a href={`https://wa.me/${siteConfig.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />
                     Message on WhatsApp
                   </a>
@@ -386,7 +386,7 @@ export function AboutPage() {
               className="bg-white border-white text-[#25D366] hover:bg-white/90 h-12 px-8"
               asChild
             >
-              <a href={`https://wa.me/${siteConfig.whatsappNumber}`}>
+              <a href={`https://wa.me/${siteConfig.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Chat on WhatsApp
               </a>
@@ -402,7 +402,7 @@ export function AboutPage() {
               <Mail className="h-4 w-4" />
               {siteConfig.contactEmail}
             </a>
-            <a href={`https://wa.me/${siteConfig.whatsappNumber}`} className="flex items-center justify-center gap-2 hover:text-white transition-colors">
+            <a href={`https://wa.me/${siteConfig.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>

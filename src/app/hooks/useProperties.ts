@@ -34,7 +34,8 @@ export function useProperties() {
           description,
           amenities,
           nearbyFacilities,
-          coordinates
+          coordinates,
+          mapEmbedUrl
         }`;
 
         const data = await client.fetch(query);
@@ -87,7 +88,8 @@ export function useProperty(id: string) {
           description,
           amenities,
           nearbyFacilities,
-          coordinates
+          coordinates,
+          mapEmbedUrl
         }`;
 
         const data = await client.fetch(query, { id });
@@ -142,7 +144,8 @@ export function useFeaturedProperties(limit = 6) {
           description,
           amenities,
           nearbyFacilities,
-          coordinates
+          coordinates,
+          mapEmbedUrl
         }`;
 
         const data = await client.fetch(query);

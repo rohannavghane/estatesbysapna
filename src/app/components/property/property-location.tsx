@@ -8,6 +8,7 @@ interface PropertyLocationProps {
     distance: string;
     type: string;
   }[];
+  mapEmbedUrl?: string;
 }
 
 const getFacilityIcon = (type: string) => {
@@ -28,32 +29,52 @@ const getFacilityIcon = (type: string) => {
   }
 };
 
-export function PropertyLocation({ location, coordinates, nearbyFacilities }: PropertyLocationProps) {
+export function PropertyLocation({ location, coordinates, nearbyFacilities, mapEmbedUrl }: PropertyLocationProps) {
+  const mapsUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`;
+
   return (
     <div className="space-y-6">
-      {/* Map Placeholder */}
-      <div className="w-full h-80 bg-secondary rounded-lg flex items-center justify-center relative overflow-hidden">
-        <iframe
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          loading="lazy"
-          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${coordinates.lat},${coordinates.lng}&zoom=14`}
-          title="Property Location"
-          className="absolute inset-0"
-        />
-        <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-          <div className="text-center">
-            <MapPin className="h-12 w-12 text-[var(--gold)] mx-auto mb-3" />
-            <h3 className="text-xl mb-1" style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}>
-              {location}
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              {coordinates.lat.toFixed(4)}, {coordinates.lng.toFixed(4)}
-            </p>
+      {/* Map */}
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative w-full h-80 rounded-lg overflow-hidden group cursor-pointer"
+      >
+        {mapEmbedUrl ? (
+          <>
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`Map - ${location}`}
+              className="pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-[var(--gold)]" />
+                <span className="font-medium text-[var(--navy)]">Open in Google Maps</span>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="w-full h-full bg-secondary flex items-center justify-center">
+            <div className="text-center">
+              <MapPin className="h-12 w-12 text-[var(--gold)] mx-auto mb-3" />
+              <h3 className="text-xl mb-1" style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}>
+                {location}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {coordinates.lat.toFixed(4)}, {coordinates.lng.toFixed(4)}
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
+        )}
+      </a>
 
       {/* Nearby Facilities */}
       <div>

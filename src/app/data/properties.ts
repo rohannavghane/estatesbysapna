@@ -25,6 +25,7 @@ export interface Property {
     lat: number;
     lng: number;
   };
+  mapEmbedUrl?: string;
 }
 
 export interface Neighborhood {

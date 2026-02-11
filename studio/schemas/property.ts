@@ -179,6 +179,12 @@ export default defineType({
       ],
       description: 'GPS coordinates for map display',
     }),
+    defineField({
+      name: 'mapEmbedUrl',
+      title: 'Google Maps Embed URL',
+      type: 'url',
+      description: 'Paste the Google Maps embed URL for this property (from Google Maps > Share > Embed a map > copy src URL)',
+    }),
   ],
   preview: {
     select: {
