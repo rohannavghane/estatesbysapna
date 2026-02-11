@@ -154,9 +154,9 @@ export function PropertyDetailPage() {
               <TabsContent value="location" className="mt-6">
                 <PropertyLocation
                   location={property.location}
-                  coordinates={property.coordinates}
                   nearbyFacilities={property.nearbyFacilities}
                   mapEmbedUrl={property.mapEmbedUrl}
+                  locationUrl={property.locationUrl}
                 />
               </TabsContent>
               <TabsContent value="calculator" className="mt-6">

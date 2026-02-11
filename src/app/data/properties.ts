@@ -21,11 +21,12 @@ export interface Property {
     distance: string;
     type: string;
   }[];
-  coordinates: {
+  coordinates?: {
     lat: number;
     lng: number;
   };
   mapEmbedUrl?: string;
+  locationUrl?: string;
 }
 
 export interface Neighborhood {

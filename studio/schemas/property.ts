@@ -180,6 +180,12 @@ export default defineType({
       description: 'GPS coordinates for map display',
     }),
     defineField({
+      name: 'locationUrl',
+      title: 'Google Maps Location URL',
+      type: 'url',
+      description: 'Paste the Google Maps link for this property (the URL from your browser when viewing the location on Google Maps)',
+    }),
+    defineField({
       name: 'mapEmbedUrl',
       title: 'Google Maps Embed URL',
       type: 'url',

@@ -2,13 +2,13 @@ import { MapPin, School, ShoppingBag, Train, Building2 } from 'lucide-react';
 
 interface PropertyLocationProps {
   location: string;
-  coordinates: { lat: number; lng: number };
   nearbyFacilities: {
     name: string;
     distance: string;
     type: string;
   }[];
   mapEmbedUrl?: string;
+  locationUrl?: string;
 }
 
 const getFacilityIcon = (type: string) => {
@@ -29,15 +29,13 @@ const getFacilityIcon = (type: string) => {
   }
 };
 
-export function PropertyLocation({ location, coordinates, nearbyFacilities, mapEmbedUrl }: PropertyLocationProps) {
-  const mapsUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`;
-
+export function PropertyLocation({ location, nearbyFacilities, mapEmbedUrl, locationUrl }: PropertyLocationProps) {
   return (
     <div className="space-y-6">
       {/* Map */}
       <a
-        href={mapsUrl}
-        target="_blank"
+        href={locationUrl || '#'}
+        target={locationUrl ? '_blank' : undefined}
         rel="noopener noreferrer"
         className="block relative w-full h-80 rounded-lg overflow-hidden group cursor-pointer"
       >
@@ -68,9 +66,6 @@ export function PropertyLocation({ location, coordinates, nearbyFacilities, mapE
               <h3 className="text-xl mb-1" style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}>
                 {location}
               </h3>
-              <p className="text-sm text-muted-foreground">
-                {coordinates.lat.toFixed(4)}, {coordinates.lng.toFixed(4)}
-              </p>
             </div>
           </div>
         )}
