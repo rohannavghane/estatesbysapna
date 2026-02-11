@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+import { useNeighborhoods } from '@/app/hooks/useNeighborhoods';
 
 const quickLinks = [
   { name: 'Home', path: '/' },
@@ -9,16 +10,9 @@ const quickLinks = [
   { name: 'Contact', path: '/contact' },
 ];
 
-const popularAreas = [
-  'Dubai Marina',
-  'Downtown Dubai',
-  'Palm Jumeirah',
-  'Business Bay',
-  'Jumeirah Beach Residence',
-];
-
 export function Footer() {
   const { siteConfig } = useSiteConfig();
+  const { neighborhoods } = useNeighborhoods();
 
   if (!siteConfig) return null;
 
@@ -77,9 +71,13 @@ export function Footer() {
           {/* Popular Areas */}
           <div>
             <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Popular Areas</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              {popularAreas.map((area) => (
-                <li key={area} className="hover:text-[var(--gold)] transition-colors cursor-pointer">{area}</li>
+            <ul className="space-y-2 text-sm">
+              {neighborhoods.map((area) => (
+                <li key={area.slug}>
+                  <Link to={`/area/${area.slug}`} className="text-gray-400 hover:text-[var(--gold)] transition-colors">
+                    {area.name}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

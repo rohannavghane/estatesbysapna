@@ -2,6 +2,7 @@ import { Button } from '@/app/components/ui/button';
 import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Search } from 'lucide-react';
+import { Link } from 'react-router';
 
 export function HeroSection() {
   const { siteConfig } = useSiteConfig();
@@ -36,9 +37,12 @@ export function HeroSection() {
           <Button
             size="lg"
             className="bg-[var(--gold)] hover:bg-[var(--gold)]/90 text-[var(--navy)] h-12 px-8"
+            asChild
           >
-            <Search className="h-5 w-5 mr-2" />
-            {siteConfig.heroPrimaryButtonText}
+            <Link to="/properties">
+              <Search className="h-5 w-5 mr-2" />
+              {siteConfig.heroPrimaryButtonText}
+            </Link>
           </Button>
           <Button
             size="lg"
