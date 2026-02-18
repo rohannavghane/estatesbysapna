@@ -4,7 +4,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // Sanity client configuration
 export const client = createClient({
-  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'your-project-id',
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'rx98mfqq',
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   useCdn: true, // Enable CDN for faster response times
   apiVersion: '2024-01-01', // Use current date for latest features
