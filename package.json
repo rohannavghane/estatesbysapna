@@ -78,7 +78,7 @@
     "@vitejs/plugin-react": "4.7.0",
     "sanity": "^3.60.0",
     "tailwindcss": "4.1.12",
-    "vite": "6.3.5"
+    "vite": "^7.3.1"
   },
   "pnpm": {
     "overrides": {
