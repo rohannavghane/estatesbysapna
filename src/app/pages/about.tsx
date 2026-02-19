@@ -2,6 +2,7 @@ import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { useSiteConfig } from '@/app/hooks/useSiteConfig';
+import { PageLoader } from '@/app/components/ui/page-loader';
 import {
   Award,
   Bell,
@@ -33,7 +34,7 @@ import { Link } from 'react-router';
 export function AboutPage() {
   const { siteConfig } = useSiteConfig();
 
-  if (!siteConfig) return null;
+  if (!siteConfig) return <PageLoader />;
 
   const credentialIcons = [Check, GraduationCap, Home, Star];
   const trustIcons = [Award, Clock, Handshake, TrendingUp];

@@ -6,6 +6,7 @@ import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { PropertyCard } from '@/app/components/property/property-card';
 import { Button } from '@/app/components/ui/button';
+import { PageLoader } from '@/app/components/ui/page-loader';
 
 const facilityIcons: Record<string, React.ReactNode> = {
   mall: <ShoppingBag className="h-5 w-5" />,
@@ -31,6 +32,10 @@ export function AreaDetailPage() {
 
   const loading = propertiesLoading || areaLoading;
   const error = propertiesError || areaError;
+
+  if (loading) {
+    return <PageLoader />;
+  }
 
   if (!area) {
     return (

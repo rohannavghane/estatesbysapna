@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { Toaster } from '@/app/components/ui/sonner';
 import { useSiteConfig } from '@/app/hooks/useSiteConfig';
 import { siteConfig as staticConfig } from '@/app/data/site-config';
+import { PageLoader } from '@/app/components/ui/page-loader';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export function ContactPage() {
 
   const { siteConfig } = useSiteConfig();
 
-  if (!siteConfig) return null;
+  if (!siteConfig) return <PageLoader />;
 
   const { googleForm } = staticConfig;
 
