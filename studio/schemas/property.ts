@@ -97,10 +97,41 @@ export default defineType({
     }),
     defineField({
       name: 'new',
-      title: 'New Listing',
+      title: 'Newly Launched',
       type: 'boolean',
       initialValue: false,
-      description: 'Mark as new listing with badge',
+      description: 'Mark as newly launched project with badge',
+    }),
+    defineField({
+      name: 'offPlan',
+      title: 'Off Plan Property',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Property under construction / pre-completion. Shows Off Plan badge.',
+    }),
+    defineField({
+      name: 'developer',
+      title: 'Developer',
+      type: 'string',
+      description: 'e.g., Emaar Properties, DAMAC, Nakheel, Meraas',
+    }),
+    defineField({
+      name: 'completionDate',
+      title: 'Expected Completion',
+      type: 'string',
+      description: 'e.g., Q4 2026, December 2027',
+    }),
+    defineField({
+      name: 'paymentPlan',
+      title: 'Payment Plan',
+      type: 'string',
+      description: 'e.g., 60/40, 30/70, 10% down payment',
+    }),
+    defineField({
+      name: 'launchDate',
+      title: 'Launch Date',
+      type: 'date',
+      description: 'Official project launch date',
     }),
     defineField({
       name: 'description',

@@ -6,6 +6,7 @@ import { Separator } from '@/app/components/ui/separator';
 
 interface PropertyFiltersProps {
   filters: {
+    status?: string;
     type: string;
     location: string;
     priceRange: string;
@@ -24,6 +25,30 @@ export function PropertyFilters({ filters, setFilters }: PropertyFiltersProps) {
         <CardTitle>Filters</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
+        {/* Listing Status */}
+        {'status' in filters && (
+          <>
+            <div className="space-y-2">
+              <Label>Listing Status</Label>
+              <Select
+                value={filters.status || 'all'}
+                onValueChange={(value) => setFilters({ ...filters, status: value })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="All Properties" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Properties</SelectItem>
+                  <SelectItem value="newly-launched">Newly Launched</SelectItem>
+                  <SelectItem value="off-plan">Off Plan</SelectItem>
+                  <SelectItem value="ready">Ready to Move</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Separator />
+          </>
+        )}
+
         {/* Property Type */}
         <div className="space-y-2">
           <Label>Property Type</Label>

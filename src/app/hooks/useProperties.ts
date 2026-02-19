@@ -31,6 +31,11 @@ export function useProperties() {
           "images": images[].asset->url,
           featured,
           new,
+          offPlan,
+          developer,
+          completionDate,
+          paymentPlan,
+          launchDate,
           description,
           amenities,
           nearbyFacilities,
@@ -86,6 +91,11 @@ export function useProperty(id: string) {
           "images": images[].asset->url,
           featured,
           new,
+          offPlan,
+          developer,
+          completionDate,
+          paymentPlan,
+          launchDate,
           description,
           amenities,
           nearbyFacilities,
@@ -143,6 +153,11 @@ export function useFeaturedProperties(limit = 6) {
           "images": images[].asset->url,
           featured,
           new,
+          offPlan,
+          developer,
+          completionDate,
+          paymentPlan,
+          launchDate,
           description,
           amenities,
           nearbyFacilities,
@@ -163,6 +178,124 @@ export function useFeaturedProperties(limit = 6) {
     };
 
     fetchFeaturedProperties();
+  }, [limit]);
+
+  return { properties, loading, error };
+}
+
+/**
+ * Fetch newly launched properties from Sanity CMS
+ * @param limit - Maximum number of properties to fetch (default: 6)
+ * @returns Object with properties array, loading state, and error
+ */
+export function useNewlyLaunchedProperties(limit = 6) {
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchNewlyLaunched = async () => {
+      try {
+        setLoading(true);
+
+        const query = `*[_type == "property" && new == true] | order(launchDate desc, _createdAt desc) [0...${limit}] {
+          "id": _id,
+          title,
+          price,
+          location,
+          neighborhood,
+          type,
+          bedrooms,
+          bathrooms,
+          area,
+          "image": mainImage.asset->url,
+          "images": images[].asset->url,
+          featured,
+          new,
+          offPlan,
+          developer,
+          completionDate,
+          paymentPlan,
+          launchDate,
+          description,
+          amenities,
+          nearbyFacilities,
+          coordinates,
+          mapEmbedUrl,
+          locationUrl
+        }`;
+
+        const data = await client.fetch(query);
+        setProperties(data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching newly launched properties:', err);
+        setError(err instanceof Error ? err : new Error('Failed to fetch newly launched properties'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNewlyLaunched();
+  }, [limit]);
+
+  return { properties, loading, error };
+}
+
+/**
+ * Fetch off-plan properties from Sanity CMS
+ * @param limit - Maximum number of properties to fetch (default: 6)
+ * @returns Object with properties array, loading state, and error
+ */
+export function useOffPlanProperties(limit = 6) {
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchOffPlan = async () => {
+      try {
+        setLoading(true);
+
+        const query = `*[_type == "property" && offPlan == true] | order(_createdAt desc) [0...${limit}] {
+          "id": _id,
+          title,
+          price,
+          location,
+          neighborhood,
+          type,
+          bedrooms,
+          bathrooms,
+          area,
+          "image": mainImage.asset->url,
+          "images": images[].asset->url,
+          featured,
+          new,
+          offPlan,
+          developer,
+          completionDate,
+          paymentPlan,
+          launchDate,
+          description,
+          amenities,
+          nearbyFacilities,
+          coordinates,
+          mapEmbedUrl,
+          locationUrl
+        }`;
+
+        const data = await client.fetch(query);
+        setProperties(data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching off-plan properties:', err);
+        setError(err instanceof Error ? err : new Error('Failed to fetch off-plan properties'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOffPlan();
   }, [limit]);
 
   return { properties, loading, error };

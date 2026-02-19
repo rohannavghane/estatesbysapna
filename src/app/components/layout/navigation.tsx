@@ -14,6 +14,8 @@ export function Navigation() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Properties', path: '/properties' },
+    { name: 'New Launches', path: '/newly-launched' },
+    { name: 'Off Plan', path: '/off-plan' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];

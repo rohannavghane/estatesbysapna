@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router';
 import { Grid, List, SlidersHorizontal, X, Loader2 } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
@@ -8,41 +7,29 @@ import { PropertyCard } from '@/app/components/property/property-card';
 import { PropertyFilters } from '@/app/components/property/property-filters';
 import { useProperties } from '@/app/hooks/useProperties';
 
-export function PropertiesPage() {
-  const { properties, loading, error } = useProperties();
-  const [searchParams] = useSearchParams();
+export function OffPlanPage() {
+  const { properties: allProperties, loading, error } = useProperties();
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('featured');
   const [filters, setFilters] = useState({
-    status: searchParams.get('status') || 'all',
-    type: searchParams.get('type') || 'all',
-    location: searchParams.get('location') || 'all',
-    priceRange: searchParams.get('price') || 'all',
-    bedrooms: searchParams.get('bedrooms') || 'all',
+    type: 'all',
+    location: 'all',
+    priceRange: 'all',
+    bedrooms: 'all',
     bathrooms: 'all',
     minArea: '',
     maxArea: '',
   });
 
   const filteredProperties = useMemo(() => {
-    let filtered = [...properties];
+    let filtered = allProperties.filter(p => p.offPlan === true);
 
-    // Apply status filter
-    if (filters.status === 'newly-launched') {
-      filtered = filtered.filter(p => p.new === true);
-    } else if (filters.status === 'off-plan') {
-      filtered = filtered.filter(p => p.offPlan === true);
-    } else if (filters.status === 'ready') {
-      filtered = filtered.filter(p => !p.offPlan);
-    }
-
-    // Apply filters
     if (filters.type !== 'all') {
       filtered = filtered.filter(p => p.type.toLowerCase() === filters.type);
     }
 
     if (filters.location !== 'all') {
-      filtered = filtered.filter(p => 
+      filtered = filtered.filter(p =>
         p.neighborhood.toLowerCase().replace(/\s+/g, '-') === filters.location
       );
     }
@@ -82,7 +69,6 @@ export function PropertiesPage() {
       filtered = filtered.filter(p => p.area <= parseInt(filters.maxArea));
     }
 
-    // Apply sorting
     switch (sortBy) {
       case 'price-low':
         filtered.sort((a, b) => a.price - b.price);
@@ -93,9 +79,6 @@ export function PropertiesPage() {
       case 'area-large':
         filtered.sort((a, b) => b.area - a.area);
         break;
-      case 'area-small':
-        filtered.sort((a, b) => a.area - b.area);
-        break;
       case 'featured':
       default:
         filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
@@ -103,7 +86,17 @@ export function PropertiesPage() {
     }
 
     return filtered;
-  }, [properties, filters, sortBy]);
+  }, [allProperties, filters, sortBy]);
+
+  const clearFilters = () => setFilters({
+    type: 'all',
+    location: 'all',
+    priceRange: 'all',
+    bedrooms: 'all',
+    bathrooms: 'all',
+    minArea: '',
+    maxArea: '',
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -114,10 +107,10 @@ export function PropertiesPage() {
             className="text-4xl md:text-5xl mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Properties for Sale
+            Off Plan Properties
           </h1>
           <p className="text-gray-300">
-            {filteredProperties.length} properties available
+            {loading ? 'Loading...' : `${filteredProperties.length} ${filteredProperties.length === 1 ? 'property' : 'properties'} available`}
           </p>
         </div>
       </div>
@@ -185,7 +178,6 @@ export function PropertiesPage() {
                     <SelectItem value="price-low">Price: Low to High</SelectItem>
                     <SelectItem value="price-high">Price: High to Low</SelectItem>
                     <SelectItem value="area-large">Area: Largest First</SelectItem>
-                    <SelectItem value="area-small">Area: Smallest First</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -211,20 +203,7 @@ export function PropertiesPage() {
                     </div>
                   );
                 })}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setFilters({
-                    status: 'all',
-                    type: 'all',
-                    location: 'all',
-                    priceRange: 'all',
-                    bedrooms: 'all',
-                    bathrooms: 'all',
-                    minArea: '',
-                    maxArea: '',
-                  })}
-                >
+                <Button variant="ghost" size="sm" onClick={clearFilters}>
                   Clear All
                 </Button>
               </div>
@@ -251,20 +230,8 @@ export function PropertiesPage() {
               </div>
             ) : (
               <div className="text-center py-16">
-                <p className="text-muted-foreground mb-4">No properties found matching your criteria</p>
-                <Button
-                  variant="outline"
-                  onClick={() => setFilters({
-                    status: 'all',
-                    type: 'all',
-                    location: 'all',
-                    priceRange: 'all',
-                    bedrooms: 'all',
-                    bathrooms: 'all',
-                    minArea: '',
-                    maxArea: '',
-                  })}
-                >
+                <p className="text-muted-foreground mb-4">No off plan properties found matching your criteria</p>
+                <Button variant="outline" onClick={clearFilters}>
                   Clear Filters
                 </Button>
               </div>

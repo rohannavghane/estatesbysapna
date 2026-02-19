@@ -27,6 +27,11 @@ export interface Property {
   };
   mapEmbedUrl?: string;
   locationUrl?: string;
+  offPlan?: boolean;
+  developer?: string;
+  completionDate?: string;
+  paymentPlan?: string;
+  launchDate?: string;
 }
 
 export interface Neighborhood {

@@ -103,7 +103,10 @@ export function PropertyDetailPage() {
                       <Badge className="bg-[var(--gold)] text-[var(--navy)]">Featured</Badge>
                     )}
                     {property.new && (
-                      <Badge className="bg-[var(--navy)] text-white">New</Badge>
+                      <Badge className="bg-[var(--navy)] text-white">New Launch</Badge>
+                    )}
+                    {property.offPlan && (
+                      <Badge className="bg-amber-500 text-white">Off Plan</Badge>
                     )}
                     <Badge variant="outline">{property.type}</Badge>
                   </div>
@@ -135,6 +138,30 @@ export function PropertyDetailPage() {
               >
                 {formatPrice(property.price)}
               </div>
+
+              {/* Off Plan Info Strip */}
+              {property.offPlan && (property.developer || property.completionDate || property.paymentPlan) && (
+                <div className="flex flex-wrap gap-6 p-4 bg-amber-50 border border-amber-200 rounded-lg mb-6">
+                  {property.developer && (
+                    <div>
+                      <p className="text-xs text-amber-600 font-semibold uppercase tracking-wide mb-1">Developer</p>
+                      <p className="font-medium text-[var(--navy)]">{property.developer}</p>
+                    </div>
+                  )}
+                  {property.completionDate && (
+                    <div>
+                      <p className="text-xs text-amber-600 font-semibold uppercase tracking-wide mb-1">Expected Completion</p>
+                      <p className="font-medium text-[var(--navy)]">{property.completionDate}</p>
+                    </div>
+                  )}
+                  {property.paymentPlan && (
+                    <div>
+                      <p className="text-xs text-amber-600 font-semibold uppercase tracking-wide mb-1">Payment Plan</p>
+                      <p className="font-medium text-[var(--navy)]">{property.paymentPlan}</p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Tabs */}
